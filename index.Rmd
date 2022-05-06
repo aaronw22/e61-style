@@ -3,7 +3,7 @@ title: "The e61 Institute R style guide"
 author: ["Aaron Wong"]
 site: bookdown::bookdown_site
 output: bookdown::bs4_book
-github-repo: aaronw22/e61-style
+github-repo: e61-institute/e61-style
 documentclass: book
 ---
 
