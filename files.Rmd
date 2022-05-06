@@ -5,7 +5,6 @@
 File names should be meaningful and end in `.R`. Avoid using special characters 
 in file names - stick with numbers, letters, `-`, and `_`.
 
-
     # Good
     fit_models.R
     utility_functions.R
@@ -36,7 +35,10 @@ have names that differ only in their capitalization.
 
 ## Organisation
 
-It's hard to describe exactly how you should organise your code across multiple files. I think the best rule of thumb is that if you can give a file a concise name that still evokes its contents, you've arrived at a good organisation. But getting to that point is hard.
+It's hard to describe exactly how you should organise your code across multiple
+files. I think the best rule of thumb is that if you can give a file a concise
+name that still evokes its contents, you've arrived at a good organisation. But
+getting to that point is hard.
 
 ## Internal structure 
 

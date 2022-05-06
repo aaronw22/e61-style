@@ -1,5 +1,7 @@
 # Tests
 
+This style guide does not go into detail about writing tests because it is merely a guide to style. To learn how to write good tests, read the [Testing chapter in R Packages](https://r-pkgs.org/tests.html).
+
 ## Organisation
 
 The organisation of test files should match the organisation of `R/` files: if a function lives in `R/foofy.R`, then its tests should live in `tests/testthat/test-foofy.R`. 
