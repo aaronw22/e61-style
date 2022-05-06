@@ -59,28 +59,40 @@ If a function argument can't fit on a single line, this is a sign you should rew
 
 ## `return()`
 
-Only use `return()` for early returns. Otherwise, rely on R to return the result 
-of the last evaluated expression.
+For anything other than the most simple functions, use an explicit `return()` for both early returns and returns at the end of the function rather than relying on R to return the last evaluated expression.
 
 ```{r eval = FALSE}
 # Good
-find_abs <- function(x) {
-  if (x > 0) {
-    return(x)
-  }
-  x * -1
-}
 add_two <- function(x, y) {
   x + y
+  # The lack of return() is fine because it is very simple
 }
+
+complex_function <- function(stuff) {
+  # Lots of code
+  # Imagine dozens of lines here
+  
+  return(x)
+}
+
 
 # Bad
 add_two <- function(x, y) {
-  return(x + y)
+  return(x + y) 
+  # return() is probably excessive because it is a very simple function
 }
+
+
+complex_function <- function(stuff) {
+  # Lots of code
+  # Imagine dozens of lines here
+  
+  x
+}
+
 ```
 
-Return statements should always be on their own line because they have important effects on the control flow. See also [inline statements](#inline-statements).
+Return statements should always be on their own line because they have important effects on the control flow.
 
 ```{r, eval = FALSE}
 # Good
