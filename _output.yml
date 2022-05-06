@@ -1,7 +1,7 @@
 bookdown::bs4_book:
   includes:
     in_header: [ga_script.html]
-  repo: https://github.com/tidyverse/style
+  repo: https://github.com/aaronw22/e61-style
 
 bookdown::pdf_book:
   latex_engine: xelatex

@@ -1,5 +1,7 @@
 # Git/GitHub
 
+See the e61 Institute Git/Github guide (link TBD) for more details.
+
 ## Commit messages
 
 Follow [standard git commit message advice](https://chris.beams.io/posts/git-commit/). In brief:

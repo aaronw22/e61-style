@@ -1,5 +1,7 @@
 # Files {#package-files}
 
+Note: this part of the style guide is a style guide for packages, not a guide on how to build an R package, for that, please read [R Packages](https://r-pkgs.org/index.html).
+
 The majority of advice in Chapter \@ref(files) also applies to files in packages. Important differences are described below. 
 
 ## Names

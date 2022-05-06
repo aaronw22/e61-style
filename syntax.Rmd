@@ -8,7 +8,7 @@
 > --- Phil Karlton
 
 Variable and function names should use only lowercase letters, numbers, and `_`. 
-Use underscores (`_`) (so called snake case) to separate words within a name. 
+Use underscores (`_`) (this is called snake case) to separate words within a name. 
 
 ```{r, eval = FALSE}
 # Good
@@ -373,33 +373,6 @@ y <- 10
 x <- if (y < 20) "Too low" else "Too high"
 ```
 
-Function calls that affect control flow (like `return()`, `stop()` or `continue`) should always go in their own `{}` block:
-
-```{r}
-# Good
-if (y < 0) {
-  stop("Y is negative")
-}
-
-find_abs <- function(x) {
-  if (x > 0) {
-    return(x)
-  }
-  x * -1
-}
-
-# Bad
-if (y < 0) stop("Y is negative")
-
-if (y < 0)
-  stop("Y is negative")
-
-find_abs <- function(x) {
-  if (x > 0) return(x)
-  x * -1
-}
-```
-
 ### Implicit type coercion
 
 Avoid implicit type coercion (e.g. from numeric to logical) in `if` statements:
@@ -533,6 +506,13 @@ contains double quotes and no single quotes.
 Prefer `TRUE` and `FALSE` over `T` and `F`.
 
 ## Comments
+
+Comments are a vital part of code documentation. They are essential to helping
+others (and future you) understand the decisions behind why code was written in
+a particular way to do particular things. When writing comments, aim to explain
+the *why* rather than *how*. If you are not sure if something needs to be
+documented, it is usually better to err on the side of being slightly too
+verbose than being too terse when writing comments.
 
 Each line of a comment should begin with the comment symbol and a single 
 space: `# `
