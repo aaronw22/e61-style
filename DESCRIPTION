@@ -5,7 +5,7 @@ Authors@R: c(
   person("Aaron", "Wong", , "aaron.wong@e61.in", c("aut")),
   person("Hadley", "Wickham", , "hadley@rstudio.com", c("aut", "cre"))
   )
-URL: https://github.com/e61-institute
+URL: https://aaronw22.github.io/e61-style/
 Depends: 
     R (>= 3.1.0)
 Imports: 

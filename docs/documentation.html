@@ -4,13 +4,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>7 Documentation | The tidyverse style guide</title>
-<meta name="author" content="Hadley Wickham">
+<title>7 Documentation | The e61 Institute R style guide</title>
+<meta name="author" content="Aaron Wong">
 <meta name="generator" content="bookdown 0.26 with bs4_book()">
-<meta property="og:title" content="7 Documentation | The tidyverse style guide">
+<meta property="og:title" content="7 Documentation | The e61 Institute R style guide">
 <meta property="og:type" content="book">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="7 Documentation | The tidyverse style guide">
+<meta name="twitter:title" content="7 Documentation | The e61 Institute R style guide">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -36,7 +36,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">The tidyverse style guide</a>
+        <a href="index.html" title="">The e61 Institute R style guide</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -81,6 +81,7 @@
 is future-you. Use <a href="https://github.com/klutometis/roxygen">roxygen2</a> with
 <a href="https://github.com/klutometis/roxygen/blob/master/vignettes/markdown.Rmd">markdown</a>
 support enabled to keep your documentation close to the code.</p>
+<p>For more on documentation, see the <a href="https://r-pkgs.org/man.html">Documentation chapter of R Packages</a></p>
 </div>
 <div id="title-and-description" class="section level2" number="7.2">
 <h2>
@@ -88,7 +89,7 @@ support enabled to keep your documentation close to the code.</p>
 </h2>
 <p>Use the first line of your function documentation to provide a concise title that describes the function, dataset, or class. Titles should use sentence case
 but not end with a full stop (<code>.</code>).</p>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' Combine values into a vector or list</span>
 <span class="co">#' </span>
 <span class="co">#' This is a generic function which combines its arguments.</span>
@@ -96,7 +97,7 @@ but not end with a full stop (<code>.</code>).</p>
 <p>There is no need to use the explicit <code>@title</code> or <code>@description</code> tags, except
 in the case of the description if it is multiple paragraphs or includes
 more complex formatting like a bulleted list.</p>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' Apply a function to each element of a vector</span>
 <span class="co">#'</span>
 <span class="co">#' @description</span>
@@ -116,16 +117,16 @@ more complex formatting like a bulleted list.</p>
 <p>Always indent with one space after <code>#'</code>. If any description corresponding to a
 <code>roxygen</code> tag spans over multiple lines, add another two spaces of extra
 indention.</p>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' @param key The bare (unquoted) name of the column whose values will be used </span>
 <span class="co">#'   as column headings. </span></code></pre></div>
 <p>Alternatively, tags that span over multiple lines (like <code>@description</code>, <code>@examples</code> and <code>@section</code>) can have the corresponding tag on its own line and then subsequent lines don’t need to be indented.</p>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' @examples</span>
 <span class="co">#' 1 + 1</span>
 <span class="co">#' sin(pi)</span></code></pre></div>
 <p>Use line breaks before/after sections where needed:</p>
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' @section Tidy data:</span>
 <span class="co">#' When applied to a data frame, row names are silently dropped. To preserve,</span>
 <span class="co">#' convert to an explicit variable with [tibble::rownames_to_column()].</span>
@@ -141,12 +142,12 @@ indention.</p>
 </h2>
 <p>For most tags, like <code>@param</code>, <code>@seealso</code> and <code>@return</code>, the text should be a
 sentence, starting with a capital letter and ending with a full stop.</p>
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' @param key The bare (unquoted) name of the column whose values will be used </span>
 <span class="co">#'   as column headings. </span></code></pre></div>
 <p>If some functions share parameters, you can use <code>@inheritParams</code> to avoid
 duplication of content in multiple places.</p>
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' @inheritParams function_to_inherit_from</span></code></pre></div>
 </div>
 <div id="capitalization-and-full-stops" class="section level2" number="7.5">
@@ -157,7 +158,7 @@ duplication of content in multiple places.</p>
 case and put a period at the end of each text element, even if it is only a few
 words. However, avoid capitalization of function names or packages since R is
 case sensitive. Use a colon before enumerations or bulleted lists.</p>
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' @details </span>
 <span class="co">#' In the following, we present the bullets of the list:</span>
 <span class="co">#' * Four cats are few animals.</span>
@@ -170,11 +171,11 @@ case sensitive. Use a colon before enumerations or bulleted lists.</p>
 <p>Cross-referencing is encouraged, both within R’s help file system as well as to
 external resources.</p>
 <p>List closely related functions in <code>@seealso</code>. A single related function can be written as a sentence:</p>
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' @seealso [fct_lump()] to automatically convert the rarest (or most common)</span>
 <span class="co">#'   levels to "other".</span></code></pre></div>
 <p>More recommendations should be organised in a bulleted list:</p>
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' @seealso</span>
 <span class="co">#' * [tibble()] constructs from individual columns.</span>
 <span class="co">#' * [enframe()] converts a named vector into a two-column tibble (names and </span>
@@ -184,7 +185,7 @@ external resources.</p>
 automatically add appropriate lists and interlinks to the <code>@seealso</code> section.
 Family names are plural. In dplyr, the verbs <code>arrange()</code>, <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>,
 <code>mutate()</code>, <code>slice()</code>, <code>summarize()</code> form the family of single table verbs.</p>
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' @family single table verbs</span></code></pre></div>
 <p>When linking to external resources either include the full url inline with <code>&lt;&gt;</code>, or the surrounding prose and link text should make it extremely clear where the hyperlink goes. Avoid text like <a href="https://www.smashingmagazine.com/2012/06/links-should-never-say-click-here/">“click here”</a>.</p>
 </div>
@@ -211,7 +212,7 @@ context, disambiguate with words, e.g. “the foo package”. Do not capitalize
 </h2>
 <p>Internal functions should be documented with <code>#'</code> comments as per usual.
 Use the <code>@noRd</code> tag to prevent <code>.Rd</code> files from being generated.</p>
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' Drop last</span>
 <span class="co">#'</span>
 <span class="co">#' Drops the last element from a vector.</span>
@@ -254,7 +255,7 @@ Use the <code>@noRd</code> tag to prevent <code>.Rd</code> files from being gene
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>The tidyverse style guide</strong>" was written by Hadley Wickham. </p>
+    <p>"<strong>The e61 Institute R style guide</strong>" was written by Aaron Wong. </p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

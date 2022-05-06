@@ -4,13 +4,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>3 Functions | The tidyverse style guide</title>
-<meta name="author" content="Hadley Wickham">
+<title>3 Functions | The e61 Institute R style guide</title>
+<meta name="author" content="Aaron Wong">
 <meta name="generator" content="bookdown 0.26 with bs4_book()">
-<meta property="og:title" content="3 Functions | The tidyverse style guide">
+<meta property="og:title" content="3 Functions | The e61 Institute R style guide">
 <meta property="og:type" content="book">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3 Functions | The tidyverse style guide">
+<meta name="twitter:title" content="3 Functions | The e61 Institute R style guide">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -36,7 +36,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">The tidyverse style guide</a>
+        <a href="index.html" title="">The e61 Institute R style guide</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -78,7 +78,7 @@
 <span class="header-section-number">3.1</span> Naming<a class="anchor" aria-label="anchor" href="#naming"><i class="fas fa-link"></i></a>
 </h2>
 <p>As well as following the general advice for <a href="syntax.html#object-names">object names</a>, strive to use verbs for function names:</p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Good</span>
 <span class="fu">add_row</span><span class="op">(</span><span class="op">)</span>
 <span class="fu">permute</span><span class="op">(</span><span class="op">)</span>
@@ -95,7 +95,7 @@
 <ul>
 <li>
 <p>Function-indent: place each argument on its own line, and indent to match the opening <code>(</code> of <code>function</code>:</p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">long_function_name</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span> <span class="op">=</span> <span class="st">"a long argument"</span>,
                                <span class="va">b</span> <span class="op">=</span> <span class="st">"another argument"</span>,
                                <span class="va">c</span> <span class="op">=</span> <span class="st">"another long argument"</span><span class="op">)</span> <span class="op">{</span>
@@ -104,7 +104,7 @@
 </li>
 <li>
 <p>Double-indent: Place each argument of its own <strong>double</strong> indented line.</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">long_function_name</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span>
     <span class="va">a</span> <span class="op">=</span> <span class="st">"a long argument"</span>,
     <span class="va">b</span> <span class="op">=</span> <span class="st">"another argument"</span>,
@@ -116,7 +116,7 @@
 <p>In both cases the trailing <code>)</code> and leading <code>{</code> should go on the same line as the last argument.</p>
 <p>Prefer function-indent style to double-indent style when it fits.</p>
 <p>These styles are designed to clearly separate the function definition from its body.</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Bad</span>
 <span class="va">long_function_name</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span> <span class="op">=</span> <span class="st">"a long argument"</span>,
   <span class="va">b</span> <span class="op">=</span> <span class="st">"another argument"</span>,
@@ -130,26 +130,37 @@
 <h2>
 <span class="header-section-number">3.3</span> <code>return()</code><a class="anchor" aria-label="anchor" href="#return"><i class="fas fa-link"></i></a>
 </h2>
-<p>Only use <code><a href="https://rdrr.io/r/base/function.html">return()</a></code> for early returns. Otherwise, rely on R to return the result
-of the last evaluated expression.</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<p>For anything other than the most simple functions, use an explicit <code><a href="https://rdrr.io/r/base/function.html">return()</a></code> for both early returns and returns at the end of the function rather than relying on R to return the last evaluated expression.</p>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Good</span>
-<span class="va">find_abs</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-  <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span>
-    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-  <span class="op">}</span>
-  <span class="va">x</span> <span class="op">*</span> <span class="op">-</span><span class="fl">1</span>
-<span class="op">}</span>
 <span class="va">add_two</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">x</span> <span class="op">+</span> <span class="va">y</span>
+  <span class="co"># The lack of return() is fine because it is very simple</span>
 <span class="op">}</span>
+
+<span class="va">complex_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">stuff</span><span class="op">)</span> <span class="op">{</span>
+  <span class="co"># Lots of code</span>
+  <span class="co"># Imagine dozens of lines here</span>
+  
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
+<span class="op">}</span>
+
 
 <span class="co"># Bad</span>
 <span class="va">add_two</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span>
-  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span> <span class="op">+</span> <span class="va">y</span><span class="op">)</span>
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span> <span class="op">+</span> <span class="va">y</span><span class="op">)</span> 
+  <span class="co"># return() is probably excessive because it is a very simple function</span>
+<span class="op">}</span>
+
+
+<span class="va">complex_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">stuff</span><span class="op">)</span> <span class="op">{</span>
+  <span class="co"># Lots of code</span>
+  <span class="co"># Imagine dozens of lines here</span>
+  
+  <span class="va">x</span>
 <span class="op">}</span></code></pre></div>
-<p>Return statements should always be on their own line because they have important effects on the control flow. See also <a href="syntax.html#inline-statements">inline statements</a>.</p>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<p>Return statements should always be on their own line because they have important effects on the control flow.</p>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Good</span>
 <span class="va">find_abs</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
   <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span>
@@ -167,7 +178,7 @@ of the last evaluated expression.</p>
 plotting, or saving to disk), it should return the first argument invisibly.
 This makes it possible to use the function as part of a pipe. <code>print</code> methods
 should usually do this, like this example from <a href="http://httr.r-lib.org/">httr</a>:</p>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">print.url</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Url: "</span>, <span class="fu">build_url</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="st">"\n"</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
   <span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
@@ -179,7 +190,7 @@ should usually do this, like this example from <a href="http://httr.r-lib.org/">
 </h2>
 <p>In code, use comments to explain the “why” not the “what” or “how”. Each line
 of a comment should begin with the comment symbol and a single space: <code>#</code>.</p>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Good</span>
 
 <span class="co"># Objects like data frames are treated as leaves</span>
@@ -192,7 +203,7 @@ of a comment should begin with the comment symbol and a single space: <code>#</c
 <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">map_if</span><span class="op">(</span><span class="va">x</span>, <span class="va">is_bare_list</span>, <span class="va">recurse</span><span class="op">)</span></code></pre></div>
 <p>Comments should be in sentence case, and only end with a full stop if they
 contain at least two sentences:</p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Good</span>
 
 <span class="co"># Objects like data frames are treated as leaves</span>
@@ -241,7 +252,7 @@ contain at least two sentences:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>The tidyverse style guide</strong>" was written by Hadley Wickham. </p>
+    <p>"<strong>The e61 Institute R style guide</strong>" was written by Aaron Wong. </p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

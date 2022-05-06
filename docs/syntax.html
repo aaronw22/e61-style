@@ -4,13 +4,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>2 Syntax | The tidyverse style guide</title>
-<meta name="author" content="Hadley Wickham">
+<title>2 Syntax | The e61 Institute R style guide</title>
+<meta name="author" content="Aaron Wong">
 <meta name="generator" content="bookdown 0.26 with bs4_book()">
-<meta property="og:title" content="2 Syntax | The tidyverse style guide">
+<meta property="og:title" content="2 Syntax | The e61 Institute R style guide">
 <meta property="og:type" content="book">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2 Syntax | The tidyverse style guide">
+<meta name="twitter:title" content="2 Syntax | The e61 Institute R style guide">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -36,7 +36,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">The tidyverse style guide</a>
+        <a href="index.html" title="">The e61 Institute R style guide</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -83,7 +83,7 @@ naming things.”</p>
 <p>— Phil Karlton</p>
 </blockquote>
 <p>Variable and function names should use only lowercase letters, numbers, and <code>_</code>.
-Use underscores (<code>_</code>) (so called snake case) to separate words within a name.</p>
+Use underscores (<code>_</code>) (this is called snake case) to separate words within a name.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Good</span>
 <span class="va">day_one</span>
@@ -423,37 +423,13 @@ evaluated).</p>
 <code class="sourceCode R"><span class="co"># Good</span>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">10</span>
 <span class="va">x</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="va">y</span> <span class="op">&lt;</span> <span class="fl">20</span><span class="op">)</span> <span class="st">"Too low"</span> <span class="kw">else</span> <span class="st">"Too high"</span></code></pre></div>
-<p>Function calls that affect control flow (like <code><a href="https://rdrr.io/r/base/function.html">return()</a></code>, <code><a href="https://rdrr.io/r/base/stop.html">stop()</a></code> or <code>continue</code>) should always go in their own <code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code> block:</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Good</span>
-<span class="kw">if</span> <span class="op">(</span><span class="va">y</span> <span class="op">&lt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span>
-  <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"Y is negative"</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="va">find_abs</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-  <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span>
-    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-  <span class="op">}</span>
-  <span class="va">x</span> <span class="op">*</span> <span class="op">-</span><span class="fl">1</span>
-<span class="op">}</span>
-
-<span class="co"># Bad</span>
-<span class="kw">if</span> <span class="op">(</span><span class="va">y</span> <span class="op">&lt;</span> <span class="fl">0</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"Y is negative"</span><span class="op">)</span>
-
-<span class="kw">if</span> <span class="op">(</span><span class="va">y</span> <span class="op">&lt;</span> <span class="fl">0</span><span class="op">)</span>
-  <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"Y is negative"</span><span class="op">)</span>
-
-<span class="va">find_abs</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-  <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-  <span class="va">x</span> <span class="op">*</span> <span class="op">-</span><span class="fl">1</span>
-<span class="op">}</span></code></pre></div>
 </div>
 <div id="implicit-type-coercion" class="section level3" number="2.4.4">
 <h3>
 <span class="header-section-number">2.4.4</span> Implicit type coercion<a class="anchor" aria-label="anchor" href="#implicit-type-coercion"><i class="fas fa-link"></i></a>
 </h3>
 <p>Avoid implicit type coercion (e.g. from numeric to logical) in <code>if</code> statements:</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Good</span>
 <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span>
   <span class="co"># do something</span>
@@ -474,7 +450,7 @@ evaluated).</p>
 <li>Elements that fall through to the following element should have a space after <code>=</code>.</li>
 <li>Provide a fall-through error, unless you have previously validated the input.</li>
 </ul>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Good </span>
 <span class="kw"><a href="https://rdrr.io/r/base/switch.html">switch</a></span><span class="op">(</span><span class="va">x</span>, 
   a <span class="op">=</span> ,
@@ -500,7 +476,7 @@ a separate function.</p>
 <p>If a function call is too long to fit on a single line, use one line each for
 the function name, each argument, and the closing <code>)</code>.
 This makes the code easier to read and to change later.</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Good</span>
 <span class="fu">do_something_very_complicated</span><span class="op">(</span>
   something <span class="op">=</span> <span class="st">"that"</span>,
@@ -516,7 +492,7 @@ This makes the code easier to read and to change later.</p>
 for very common arguments (i.e. for arguments that are used in almost every
 invocation of the function). Short unnamed arguments can also go on the same
 line as the function name, even if the whole function call spans multiple lines.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">map</span><span class="op">(</span><span class="va">x</span>, <span class="va">f</span>,
   extra_argument_a <span class="op">=</span> <span class="fl">10</span>,
   extra_argument_b <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">43</span>, <span class="fl">390</span>, <span class="fl">210209</span><span class="op">)</span>
@@ -524,7 +500,7 @@ line as the function name, even if the whole function call spans multiple lines.
 <p>You may also place several arguments on the same line if they are closely
 related to each other, e.g., strings in calls to <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code> or <code><a href="https://rdrr.io/r/base/stop.html">stop()</a></code>. When
 building strings, where possible match one line of code to one line of output.</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Good</span>
 <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span>
   <span class="st">"Requirement: "</span>, <span class="va">requires</span>, <span class="st">"\n"</span>,
@@ -549,7 +525,7 @@ on one line.</p>
 <span class="header-section-number">2.7</span> Assignment<a class="anchor" aria-label="anchor" href="#assignment-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>Use <code>&lt;-</code>, not <code>=</code>, for assignment.</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Good</span>
 <span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">5</span>
 
@@ -566,7 +542,7 @@ on one line.</p>
 </h3>
 <p>Use <code>"</code>, not <code>'</code>, for quoting text. The only exception is when the text already
 contains double quotes and no single quotes.</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Good</span>
 <span class="st">"Text"</span>
 <span class="st">'Text with "quotes"'</span>
@@ -587,6 +563,12 @@ contains double quotes and no single quotes.</p>
 <h2>
 <span class="header-section-number">2.9</span> Comments<a class="anchor" aria-label="anchor" href="#comments"><i class="fas fa-link"></i></a>
 </h2>
+<p>Comments are a vital part of code documentation. They are essential to helping
+others (and future you) understand the decisions behind why code was written in
+a particular way to do particular things. When writing comments, aim to explain
+the <em>why</em> rather than <em>how</em>. If you are not sure if something needs to be
+documented, it is usually better to err on the side of being slightly too
+verbose than being too terse when writing comments.</p>
 <p>Each line of a comment should begin with the comment symbol and a single
 space: <code>#</code></p>
 <p>In data analysis code, use comments to record important findings and analysis
@@ -655,7 +637,7 @@ than code, consider switching to <a href="https://rmarkdown.rstudio.com/">R Mark
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>The tidyverse style guide</strong>" was written by Hadley Wickham. </p>
+    <p>"<strong>The e61 Institute R style guide</strong>" was written by Aaron Wong. </p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

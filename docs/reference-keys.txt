@@ -72,7 +72,6 @@ organisation-3
 development
 news-release
 breaking-changes
-blog-post
 gitgithub
 commit-messages
 pull-requests
