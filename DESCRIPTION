@@ -1,4 +1,4 @@
-Package: e61-style
+Package: e61style
 Title: e61 Institute R style guide
 Version: 1.0.0
 Authors@R: c(
