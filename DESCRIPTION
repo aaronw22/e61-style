@@ -1,11 +1,10 @@
-Package: e61style
+Package: e61RStyle
 Title: e61 Institute R style guide
 Version: 1.0.0
 Authors@R: c(
-  person("Aaron", "Wong", , "aaron.wong@e61.in", c("aut")),
-  person("Hadley", "Wickham", , "hadley@rstudio.com", c("aut", "cre"))
+  person("Aaron", "Wong", , "aaron.wong@e61.in", c("aut"))
   )
-URL: https://e61-institute.github.io/e61-style/
+URL: https://e61-institute.github.io/e61-r-style/
 Depends: 
     R (>= 3.1.0)
 Imports: 
@@ -15,3 +14,4 @@ Imports:
     bslib,
     downlit, 
     xml2
+RoxygenNote: 7.1.2
